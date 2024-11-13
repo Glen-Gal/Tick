@@ -8,7 +8,16 @@ import { data } from "autoprefixer";
 import { Send } from "lucide-react";
 import { useRef } from "react";
 import { useFormState, useFormStatus } from "react-dom";
-import { TodoCommentDescriptor } from "typescript";
+
+export type Action = "delete" | "update" | "create";
+
+// In todo-form.tsx
+type TodoFormProps = {
+  optimisticUpdate: (update: { action: Action; todo: Todo }) => void;
+};
+
+// Update TodoCommentDescriptor or the type used in TodoForm
+type TodoCommentDescriptor = (update: { action: Action; todo: Todo }) => void;
 
 function FormContent() {
   const { pending } = useFormStatus();

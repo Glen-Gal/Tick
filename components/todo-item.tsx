@@ -9,10 +9,13 @@ import { useFormStatus } from "react-dom";
 import { TodoOptimisticUpdate } from "./todo-list";
 import { useState } from "react";
 
-export function TodoItem({ todo , optimisticUpdate }: { todo: Todo ,
-  optimisticUpdate : TodoOptimisticUpdate;
+export function TodoItem({
+  todo,
+  optimisticUpdate,
+}: {
+  todo: Todo;
+  optimisticUpdate: TodoOptimisticUpdate;
 }) {
-  
   return (
     <form>
       <TodoCard optimisticUpdate={optimisticUpdate} todo={todo} />
@@ -20,28 +23,39 @@ export function TodoItem({ todo , optimisticUpdate }: { todo: Todo ,
   );
 }
 
-export function TodoCard({ todo , optimisticUpdate}: { todo: Todo, optimisticUpdate : TodoOptimisticUpdate }) {
-  const {pending} = useFormStatus();
+export function TodoCard({
+  todo,
+  optimisticUpdate,
+}: {
+  todo: Todo;
+  optimisticUpdate: TodoOptimisticUpdate;
+}) {
+  const { pending } = useFormStatus();
   const [checked, setChecked] = useState(todo.is_complete);
   return (
-    <Card className={cn("w-full" , pending && "opactiy-50" )}>
+    <Card className={cn("w-full", pending && "opactiy-50")}>
       <CardContent className="flex items-start gap-3 p-3">
         <span className="size-10 flex items-center justify-center">
-          <Checkbox 
-           disabled = {pending}
-           checked={Boolean(checked)} onCheckedChange={async (val) => {
-            if(val === "indeterminate") return;
-            setChecked(val)
-            await updateTodo({...todo, is_complete: val})
-          } } />
+          <Checkbox
+            disabled={pending}
+            checked={Boolean(checked)}
+            onCheckedChange={async (val) => {
+              if (val === "indeterminate") return;
+              setChecked(val);
+              await updateTodo({ ...todo, is_complete: val });
+            }}
+          />
         </span>
         <p className={cn("flex-1 pt-2 min-w-0 break-words")}>{todo.task}</p>
         <Button
-         disabled = {pending}
-        formAction={async (data)=> {
-          optimisticUpdate({action : "delete" , todo})
-          await deleteTodo(todo.id)
-         } }variant="ghost" size="icon">
+          disabled={pending}
+          formAction={async (data) => {
+            optimisticUpdate({ action: "delete", todo });
+            await deleteTodo(todo.id);
+          }}
+          variant="ghost"
+          size="icon"
+        >
           <Trash2 className="h-5 w-5" />
           <span className="sr-only">Delete Todo</span>
         </Button>
