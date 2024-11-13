@@ -1,10 +1,10 @@
-import { User2 } from "lucide-react";
-import Image from "next/image";
-import React from "react";
+import { User2 } from 'lucide-react';
+import Image from 'next/image';
+import React from 'react';
 
-type Props = {};
+// type Props = {};
 
-const DashboardNavbar = (props: Props) => {
+const DashboardNavbar = () => {
   return (
     <div className="w-full z-50 flex justify-between items-center sticky top-0 left-0 h-12 bg-[#F9F9F9] text-[#222222] border-b border-[#ECECEC] p-3">
       <Image

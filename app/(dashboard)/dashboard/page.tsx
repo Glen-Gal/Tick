@@ -1,10 +1,10 @@
-import { Check, ChevronRightCircle, Users2 } from "lucide-react";
-import Link from "next/link";
-import React from "react";
+import { Check, ChevronRightCircle, Users2 } from 'lucide-react';
+import Link from 'next/link';
+import React from 'react';
 
-type Props = {};
+// type Props = {};
 
-const Dashboard = (props: Props) => {
+const Dashboard = () => {
   return (
     <div className="flex flex-col justify-center items-center w-full">
       <div className="flex w-full px-8 py-4 border-b border-[#ECECEC]">
@@ -55,7 +55,7 @@ const Dashboard = (props: Props) => {
       </div>
 
       <Link
-        href="/todos"
+        href={'/todos'}
         className="bg-[#EA4E43] shadow-sm border border-[#ECECEC] hover:bg-[#EA4E43]/75 text-white rounded-full flex items-center gap-4 px-5 py-3 mt-10 transition"
       >
         <span className="">Head to work</span>

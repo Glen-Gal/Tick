@@ -1,15 +1,15 @@
-"use server";
+'use server';
 
-import { Todo } from "@/types/custom";
-import { createClient } from "@/utils/supabase/server";
-import { revalidatePath } from "next/cache";
+import { Todo } from '@/types/custom';
+import { createClient } from '@/utils/supabase/server';
+import { revalidatePath } from 'next/cache';
 
 export async function addTodo(formData: FormData) {
   const supabase = await createClient();
-  const text = formData.get("todo") as string | null;
+  const text = formData.get('todo') as string | null;
 
   if (!text) {
-    console.error("Todo text is missing.");
+    console.error('Todo text is missing.');
     return;
   }
   const {
@@ -17,18 +17,18 @@ export async function addTodo(formData: FormData) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    console.error("no user logged");
+    console.error('no user logged');
   }
-  const { data, error } = await (await supabase).from("todos").insert({
+  const { data, error } = await (await supabase).from('todos').insert({
     user_id: user?.id,
     task: text,
   });
   if (error) {
-    console.error("Error adding todo:", error);
+    console.error('Error adding todo:', error);
   } else {
-    console.log("Todo added:", data);
+    console.log('Todo added:', data);
   }
-  revalidatePath("/todos");
+  revalidatePath('/todos');
 }
 
 export async function deleteTodo(id: number) {
@@ -38,17 +38,17 @@ export async function deleteTodo(id: number) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    console.error("no user logged");
+    console.error('no user logged');
   }
-  const { error } = await (await supabase).from("todos").delete().match({
+  const { error } = await (await supabase).from('todos').delete().match({
     user_id: user?.id,
     id: id,
   });
 
   if (error) {
-    console.error("error deleting task");
+    console.error('error deleting task');
   }
-  revalidatePath("/todos");
+  revalidatePath('/todos');
 }
 
 export async function updateTodo(todo: Todo) {
@@ -57,15 +57,15 @@ export async function updateTodo(todo: Todo) {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) {
-    console.error("no user logged");
+    console.error('no user logged');
   }
-  const { error } = await (await supabase).from("todos").update(todo).match({
+  const { error } = await (await supabase).from('todos').update(todo).match({
     user_id: user?.id,
     id: todo.id,
   });
 
   if (error) {
-    console.error("error updationg task");
+    console.error('error updationg task');
   }
-  revalidatePath("/todos");
+  revalidatePath('/todos');
 }

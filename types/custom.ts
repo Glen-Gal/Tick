@@ -1,3 +1,3 @@
-import { Database } from "./supabase";
+import { Database } from './supabase';
 
-export type Todo = Database["public"]["Tables"]["todos"]["Row"];
+export type Todo = Database['public']['Tables']['todos']['Row'];

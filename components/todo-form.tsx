@@ -1,20 +1,23 @@
-"use client";
-import { addTodo } from "@/app/(dashboard)/todos/action";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Textarea } from "@/components/ui/textarea";
-import { Todo } from "@/types/custom";
-import { data } from "autoprefixer";
-import { Send } from "lucide-react";
-import { useRef } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+/* eslint-disable */
 
-export type Action = "delete" | "update" | "create";
+'use client';
+
+import { addTodo } from '@/app/(dashboard)/todos/action';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Textarea } from '@/components/ui/textarea';
+import { Todo } from '@/types/custom';
+// import { data } from "autoprefixer";
+import { Send } from 'lucide-react';
+import { useRef } from 'react';
+import { useFormStatus } from 'react-dom';
+
+export type Action = 'delete' | 'update' | 'create';
 
 // In todo-form.tsx
-type TodoFormProps = {
-  optimisticUpdate: (update: { action: Action; todo: Todo }) => void;
-};
+// type TodoFormProps = {
+//   optimisticUpdate: (update: { action: Action; todo: Todo }) => void;
+// };
 
 // Update TodoCommentDescriptor or the type used in TodoForm
 type TodoCommentDescriptor = (update: { action: Action; todo: Todo }) => void;
@@ -53,12 +56,12 @@ export function TodoForm({
           action={async (data) => {
             const newTodo: Todo = {
               id: -1,
-              inserted_at: "",
-              user_id: "",
-              task: data.get("todo") as string,
+              inserted_at: '',
+              user_id: '',
+              task: data.get('todo') as string,
               is_complete: false,
             };
-            optimisticUpdate({ action: "create", todo: newTodo });
+            optimisticUpdate({ action: 'create', todo: newTodo });
             await addTodo(data);
             formRef.current?.reset();
           }}

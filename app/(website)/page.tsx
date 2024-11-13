@@ -1,12 +1,12 @@
-import { Separator } from "@/components/ui/separator";
-import Image from "next/image";
+import { Separator } from '@/components/ui/separator';
+import Image from 'next/image';
 
 export default async function Index() {
   return (
     <section className="space-y-6 pb-8 md:pb-12 lg:pb-32">
       <div className="container flex max-w-[72rem] pt-6 md:pt-10 lg:pt-32 h-banner-size flex-col items-center gap-4 text-center">
         <Image
-          src={"/elephant_landing_2024.png"}
+          src={'/elephant_landing_2024.png'}
           width={500}
           height={324}
           className="h-auto w-80"
@@ -16,7 +16,7 @@ export default async function Index() {
           Your Pocket Asana. Say hi to Tick
         </h1>
         <p className="max-w-[42rem] leading-normal text-muted-foreground sm:leading-8">
-          For Web, Mobile, Mac & Windows "On Website"
+          For Web, Mobile, Mac & Windows &quot;On Website&quot;
         </p>
         <div className="">
           <a
@@ -91,8 +91,8 @@ export default async function Index() {
             <div className="flex flex-col">
               <h2 className="text-2xl font-bold">Researched UX</h2>
               <p className="text-sm text-muted-foreground max-w-96">
-                Access all of Notion's tools without touching your mouse to stay
-                in flow.
+                Access all of Notion&apos;s tools without touching your mouse to
+                stay in flow.
               </p>
             </div>
           </div>

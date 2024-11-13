@@ -1,10 +1,10 @@
-import { Check, ChevronRightCircle, Users2 } from "lucide-react";
-import Link from "next/link";
-import React from "react";
+// import { Check, ChevronRightCircle, Users2 } from "lucide-react";
+// import Link from "next/link";
+import React from 'react';
 
-type Props = {};
+// type Props = {};
 
-const Channelog = (props: Props) => {
+const Channelog = () => {
   return (
     <div className="flex flex-col justify-center items-center w-full">
       <div className="flex w-full px-8 py-4 border-b border-[#ECECEC]">
@@ -16,7 +16,7 @@ const Channelog = (props: Props) => {
           <span className="text-center text-sm">Wednesday, November 13</span>
 
           <span className="text-center text-6xl font-semibold font-serif">
-            Tick's Channelog
+            Tick&apos;s Channelog
           </span>
         </div>
       </div>

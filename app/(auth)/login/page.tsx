@@ -1,14 +1,14 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
   CardContent,
-} from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { emailLogin, signup } from "./action";
+} from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { emailLogin, signup } from './action';
 
 export default function Login({
   searchParams,
@@ -58,7 +58,7 @@ export default function Login({
             </Button>
           </form>
           <div className="mt-4 text-center text-sm">
-            Don&apos;t have an account?{" "}
+            Don&apos;t have an account?{' '}
             <button formAction={signup} form="login-form" className="underline">
               Sign up
             </button>

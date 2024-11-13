@@ -1,14 +1,14 @@
-import { TodoList } from "@/components/todo-list";
-import { Separator } from "@/components/ui/separator";
-import { createClient } from "@/utils/supabase/server";
+import { TodoList } from '@/components/todo-list';
+import { Separator } from '@/components/ui/separator';
+import { createClient } from '@/utils/supabase/server';
 
 export default async function TodosPage() {
   const supabase = await createClient();
 
   const { data: todos } = await supabase
-    .from("todos")
+    .from('todos')
     .select()
-    .order("inserted_at", { ascending: false });
+    .order('inserted_at', { ascending: false });
 
   return (
     <div className="flex flex-col justify-center w-full">
