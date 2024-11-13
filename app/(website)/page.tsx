@@ -14,7 +14,7 @@ export default async function Index() {
           alt="elephant_pic"
         />
         <h1 className="font-sans text-balance font-bold text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
-          Your Pocket Asana. Say hi to Tick
+          Your Pocket Asana. Say hi to Tick&apos;s
         </h1>
         <p className="max-w-[42rem] leading-normal text-muted-foreground sm:leading-8">
           For Web, Mobile, Mac & Windows &quot;On Website&quot;
