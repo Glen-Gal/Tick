@@ -1,5 +1,6 @@
 import { Separator } from '@/components/ui/separator';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default async function Index() {
   return (
@@ -18,14 +19,12 @@ export default async function Index() {
         <p className="max-w-[42rem] leading-normal text-muted-foreground sm:leading-8">
           For Web, Mobile, Mac & Windows &quot;On Website&quot;
         </p>
-        <div className="">
-          <a
-            className="inline-flex items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-8 rounded-md"
-            href="/login"
-          >
-            Get Started
-          </a>
-        </div>
+        <Link
+          className="inline-flex items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-8 rounded-md"
+          href={'/login'}
+        >
+          Get Started
+        </Link>
       </div>
 
       <Separator />
