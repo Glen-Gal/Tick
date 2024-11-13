@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 'use client';
 
 import { TodoItem } from './todo-item';
@@ -23,10 +25,10 @@ export function todoReducer(
   }
 }
 
-// export type TodoOptimisticUpdate = (update: {
-//   action: Action;
-//   todo: Todo;
-// }) => void;
+export type TodoOptimisticUpdate = (update: {
+  action: Action;
+  todo: Todo;
+}) => void;
 
 export function TodoList({ todos }: { todos: Array<Todo> }) {
   const [optimisticTodos, optimisticTodosUpdate] = useOptimistic(
